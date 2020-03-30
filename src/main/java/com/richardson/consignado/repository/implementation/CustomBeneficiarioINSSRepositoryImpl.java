@@ -20,7 +20,7 @@ public class CustomBeneficiarioINSSRepositoryImpl implements CustomBeneficiarioI
 		try {
 			TypedQuery<BeneficiarioINSS> query = entityManager
 					.createQuery("SELECT b FROM BeneficiarioINSS b " +
-							"WHERE TIMESTAMPDIFF('DAY', b.data_despacho_beneficio, CURRENT_DATE) >= 180", BeneficiarioINSS.class);
+							"WHERE TIMESTAMPDIFF('DAY', b.dataDespachoBeneficio, CURRENT_DATE) >= 180", BeneficiarioINSS.class);
 
 			return query.getResultList();
 		} catch (Exception ex) {
