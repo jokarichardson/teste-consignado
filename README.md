@@ -1,6 +1,6 @@
 # CONSIGNADO
 <p>Aplicação de Demonstração para Crédito Consignado</p>
-Copyright © 2020 Richardson Software Ltda.
+<p>Copyright © 2020 Richardson Software Ltda.</p>
 
 Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca de ofertas de crédito consignado, respeitando a nova <b>Instrução Normativa nº 100, do Instituto Nacional do Seguro Social, de 28/12/2018</b>.
 
