@@ -109,7 +109,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
   ]
   ```
 
-* **armazenarCreditoContratado()**
+* **armazenarCreditoContratado:**
 
   * **Endpoint:** /consignado
   * **Método:** POST
