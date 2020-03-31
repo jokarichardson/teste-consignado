@@ -207,3 +207,4 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
   
 ## Swagger
 
+<p align="center"><img src="https://github.com/jokarichardson/teste-consignado/blob/master/src/main/resources/swagger.png" /></p>
