@@ -8,15 +8,15 @@ Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca 
 
 Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito consignado, aos aposentados e pensionistas, mediante as regras abaixo:
 
-* Regra nº 1
+* **Regra nº 1
 
   * Todo cidadão que se aposentar a partir de 30/03/2019, terá seu benefício bloqueado automaticamente, pelo período de 90 dias, a partir da data de concessão pelo INSS (Data de Despacho do Benefício - DDB).
 
-* Regra nº 2
+* **Regra nº 2
 
   * Após 90 dias da Data de Despacho do Benefício, o aposentado ou pensionista poderá contratar um crédito consignado. Para isto, é necessário que um termo de pré-autorização seja assinado pelo beneficiário para que a instituição financeira possa solicitar o acesso às informações do benefício ao INSS. Com a aprovação, pelo INSS, do termo, será considerado mais um prazo de 90 dias a partir da Data de Despacho do Benefício para que seja permitido aos bancos ofertarem crédito consignado.
 
-* Regra nº 3
+* **Regra nº 3
 
   * Passados 180 dias da Data de Despacho do Benefício (DDB), 90 dias do bloqueio mais 90 dias para frente, os bancos podem iniciar o processo de oferta de crédito consignado aos seus clientes aposentados e pensionistas, desde que o intervalo entre a Data de Despacho do Benefício, e a Data de Autorizaão da Consulta, seja de, no mínimo, 90 dias (DDB - DAC >= 90).
 
@@ -30,18 +30,18 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 ## Operações:
 
-* recuperarOfertas (/consignado/recuperarOfertas):
+* **recuperarOfertas (/consignado/recuperarOfertas):
 
   Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias;
 
-  * Endpoint: /consignado/recuperarOfertas
-  * Método: GET
-  * Consumo Local:
+  * **Endpoint:** /consignado/recuperarOfertas
+  * **Método:** GET
+  * **Consumo Local:**
     ```
     curl -X GET "http://localhost:8080/consignado/recuperarOfertas" -H "accept: application/json"
     ```
-  * Response: Listagem de BeneficiarioDTO
-  * Exemplo de Resposta:
+  * **Response:** Listagem de BeneficiarioDTO
+  * **Exemplo de Resposta:**
   ```javascript
   [
     {
@@ -74,18 +74,18 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
   ]
   ```
 
-* recuperarOfertasAutorizadas:
+* **recuperarOfertasAutorizadas:
 
   Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias, porém haja assinatura da pré-autorização (Data de Autorização da Consulta - DAC), e a diferença entre a DAC e a DDB seja de, no mínimo, 90 dias;
 
-  * Endpoint: /consignado/recuperarOfertasAutorizadas
-  * Método: GET
-  * Consumo Local:
+  * **Endpoint:** /consignado/recuperarOfertasAutorizadas
+  * **Método:** GET
+  * **Consumo Local:**
   ```
   curl -X GET "http://localhost:8080/consignado/recuperarOfertasAutorizadas" -H "accept: application/json"
   ```
-  * Response: Listagem de BeneficiarioDTO
-  * Exemplo de Resposta: 
+  * **Response:** Listagem de BeneficiarioDTO
+  * **Exemplo de Resposta:**
   ```javascript
   [
     {
@@ -109,12 +109,12 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
   ]
   ```
 
-* armazenarCreditoContratado()
+* **armazenarCreditoContratado()
 
-  * Endpoint: /consignado
-  * Método: POST
-  * Request: CreditoContratadoDTO
-  * Exemplo de Requisição:
+  * **Endpoint:** /consignado
+  * **Método:** POST
+  * **Request:** CreditoContratadoDTO
+  * **Exemplo de Requisição:**
   ```javascript
   {
     "cpfCliente": "00000000191",
@@ -126,14 +126,14 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
     "valorContratado": 1000.00
   }
   ```
-* Consumo local:
+* **Consumo Local:**
   ```
   curl -X POST "http://localhost:8080/consignado" -H "accept: */*" -H "Content-Type: application/json" 
   -d "{ \"cpfCliente\": \"00000000191\", \"dataEnceramentoContrato\": \"2020-10-08\", 
   \"dataInicioContrato\": \"2020-04-08\", \"dataVencimentoParcela\": \"10\", \"numeroBeneficio\": 6654333, 
   \"quantidadeParcelas\": 5, \"valorContratado\": 1000.00 }"
   ```
-* Response: CreditoContratadoDTO persistido
+* **Response:** CreditoContratadoDTO persistido
 * Exemplo de Resposta:
   ```javascript
   {
@@ -150,7 +150,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 ## Modelo de Dados:
 
-* BeneficiarioDTO:
+* **BeneficiarioDTO:
   ```javascript
   {
     "cpfCliente": "String",
@@ -162,7 +162,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
     "dataDespachoBeneficio": "String"
   }
   ```
-* CreditoContratadoDTO:
+* **CreditoContratadoDTO:
   ```javascript
   {
     "id": Integer,
@@ -184,16 +184,17 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 * Utilizando um terminal (Command Prompt do Windows, Git Bash ou terminal do Linux), acessar o diretório raiz da aplicação (teste-consignado);
 
-* Maven:
+* **Maven:
 
   * Digitar o comando:
     ```
     mvn spring-boot:run
     ```
   
-  * Acessar localhost:8080 no navegador de preferência;
+  * Acessar http://localhost:8080 no navegador de preferência;
+  * Será apresentado o Swagger da aplicação
 
-* Executando via jar:
+* **Execução via jar:
 
   * Realizar o build do projeto com sua ferramenta preferencial (para Maven, comando mvn install);
   * Digitar o comando:
@@ -201,4 +202,8 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
     java -jar target/teste-consignado-1.0.0-SNAPSHOT.jar
     ```
 
-  * Acessar localhost:8080 no navegador de preferência;
+  * Acessar http://localhost:8080 no navegador de preferência;
+  * Será apresentado o Swagger da aplicação
+  
+## Swagger
+
