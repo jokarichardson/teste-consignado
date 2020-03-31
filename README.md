@@ -2,9 +2,9 @@
 <p>Aplicação de Demonstração para Crédito Consignado</p>
 <p>Copyright © 2020 Richardson Software Ltda.</p>
 
-Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca de ofertas de crédito consignado, respeitando a nova <b>Instrução Normativa nº 100, do Instituto Nacional do Seguro Social, de 28/12/2018</b>.
-
 ## Introdução
+
+Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca de ofertas de crédito consignado, respeitando a nova <b>Instrução Normativa nº 100, do Instituto Nacional do Seguro Social, de 28/12/2018</b>.
 
 Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito consignado, aos aposentados e pensionistas, mediante as regras abaixo:
 
