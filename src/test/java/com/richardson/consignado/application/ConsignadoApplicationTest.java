@@ -41,7 +41,7 @@ public class ConsignadoApplicationTest {
 
 		when(this.consignadoService.recuperarOfertas()).thenReturn(expectedBeneficiarioDTOList);
 		
-		List<BeneficiarioDTO> actualBeneficiarioDTOList = this.consignadoService.recuperarOfertas();
+		List<BeneficiarioDTO> actualBeneficiarioDTOList = this.consignadoApplication.recuperarOfertas();
 		
 		assertNotNull(actualBeneficiarioDTOList);
 		assertEquals(expectedBeneficiarioDTOList, actualBeneficiarioDTOList);
@@ -55,7 +55,7 @@ public class ConsignadoApplicationTest {
 
 		when(this.consignadoService.recuperarOfertasAutorizadas()).thenReturn(expectedBeneficiarioDTOList);
 		
-		List<BeneficiarioDTO> actualBeneficiarioDTOList = this.consignadoService.recuperarOfertasAutorizadas();
+		List<BeneficiarioDTO> actualBeneficiarioDTOList = this.consignadoApplication.recuperarOfertasAutorizadas();
 		
 		assertNotNull(actualBeneficiarioDTOList);
 		assertEquals(expectedBeneficiarioDTOList, actualBeneficiarioDTOList);

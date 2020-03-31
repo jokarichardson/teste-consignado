@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.gson.Gson;
 import com.richardson.consignado.utilities.serialization.DateDeserializer;
 import com.richardson.consignado.utilities.serialization.DateSerializer;
 
@@ -58,4 +59,9 @@ public class BeneficiarioINSS implements Serializable {
 	@JsonSerialize(using = DateSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataDespachoBeneficio;
+	
+	@Override
+	public String toString() {
+		return new Gson().toJson(this);
+	}
 }

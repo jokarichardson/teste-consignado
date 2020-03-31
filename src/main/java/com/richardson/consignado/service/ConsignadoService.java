@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.richardson.consignado.exception.ConsignadoDatabaseException;
+import com.richardson.consignado.exception.ConsignadoGenericException;
 import com.richardson.consignado.model.dto.BeneficiarioDTO;
 import com.richardson.consignado.model.dto.CreditoContratadoDTO;
 import com.richardson.consignado.model.entity.BeneficiarioINSS;
@@ -34,7 +34,7 @@ public class ConsignadoService {
 			
 			return beneficiariosDTO;
 		} catch (Exception ex) {
-			throw new ConsignadoDatabaseException(ex.getMessage());
+			throw new ConsignadoGenericException(ex.getMessage());
 		}
 	}
 	
@@ -47,7 +47,7 @@ public class ConsignadoService {
 			
 			return beneficiariosDTO;
 		} catch (Exception ex) {
-			throw new ConsignadoDatabaseException(ex.getMessage());
+			throw new ConsignadoGenericException(ex.getMessage());
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class ConsignadoService {
 			
 			return ConsignadoContratadoConverter.toCreditoContratadoDTO(consignadoContratado);
 		} catch (Exception ex) {
-			throw new ConsignadoDatabaseException(ex.getMessage());
+			throw new ConsignadoGenericException(ex.getMessage());
 		}
 	}
 }

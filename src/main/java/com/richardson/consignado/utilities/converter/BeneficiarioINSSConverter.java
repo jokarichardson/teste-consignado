@@ -17,7 +17,7 @@ public class BeneficiarioINSSConverter {
 	public static BeneficiarioDTO toBeneficiarioDTO(BeneficiarioINSS beneficiarioINSS) {
 		
 		BeneficiarioDTO beneficiarioDTO = BeneficiarioDTO.builder()
-				.cpfCliente(StringUtils.leftPad(beneficiarioINSS.getCpfCliente().toString(), 12, "0"))
+				.cpfCliente(StringUtils.leftPad(beneficiarioINSS.getCpfCliente().toString(), 11, "0"))
 				.nomeCliente(beneficiarioINSS.getNomeCliente())
 				.margemDisponivel(beneficiarioINSS.getMargemDisponivel())
 				.numeroBeneficio(beneficiarioINSS.getNumeroBeneficio())

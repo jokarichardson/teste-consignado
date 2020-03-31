@@ -16,7 +16,7 @@ public class ConsignadoContratadoConverter {
 	public static CreditoContratadoDTO toCreditoContratadoDTO(ConsignadoContratado consignadoContratado) {
 		return CreditoContratadoDTO.builder()
 				.id(consignadoContratado.getId())
-				.cpfCliente(StringUtils.leftPad(consignadoContratado.getCpfCliente().toString(), 12, "0"))
+				.cpfCliente(StringUtils.leftPad(consignadoContratado.getCpfCliente().toString(), 11, "0"))
 				.valorContratado(consignadoContratado.getValorContratado())
 				.quantidadeParcelas(consignadoContratado.getQuantidadeParcelas())
 				.dataVencimentoParcela(consignadoContratado.getDataVencimentoParcela())
