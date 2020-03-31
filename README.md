@@ -1,8 +1,6 @@
-<p align="center">
-#CONSIGNADO
+# CONSIGNADO
 Aplicação de Demonstração para Crédito Consignado
 Copyright © 2020 Richardson Software Ltda.
-</p>
 
 Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca de ofertas de crédito consignado, respeitando a nova <b>Instrução Normativa nº 100, do Instituto Nacional do Seguro Social, de 28/12/2018</b>.
 
@@ -10,17 +8,17 @@ Essa aplicação tem o intuito de apresentar um CRUD simples, que realiza busca 
 
 Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito consignado, aos aposentados e pensionistas, mediante as regras abaixo:
 
-1. Regra nº 1
+* Regra nº 1
 
-* Todo cidadão que se aposentar a partir de 30/03/2019, terá seu benefício bloqueado automaticamente, pelo período de 90 dias, a partir da data de concessão pelo INSS (Data de Despacho do Benefício - DDB).
+  * Todo cidadão que se aposentar a partir de 30/03/2019, terá seu benefício bloqueado automaticamente, pelo período de 90 dias, a partir da data de concessão pelo INSS (Data de Despacho do Benefício - DDB).
 
-2. Regra nº 2
+* Regra nº 2
 
-* Após 90 dias da Data de Despacho do Benefício, o aposentado ou pensionista poderá contratar um crédito consignado. Para isto, é necessário que um termo de pré-autorização seja assinado pelo beneficiário para que a instituição financeira possa solicitar o acesso às informações do benefício ao INSS. Com a aprovação, pelo INSS, do termo, será considerado mais um prazo de 90 dias a partir da Data de Despacho do Benefício para que seja permitido aos bancos ofertarem crédito consignado.
+  * Após 90 dias da Data de Despacho do Benefício, o aposentado ou pensionista poderá contratar um crédito consignado. Para isto, é necessário que um termo de pré-autorização seja assinado pelo beneficiário para que a instituição financeira possa solicitar o acesso às informações do benefício ao INSS. Com a aprovação, pelo INSS, do termo, será considerado mais um prazo de 90 dias a partir da Data de Despacho do Benefício para que seja permitido aos bancos ofertarem crédito consignado.
 
-3. Regra nº 3
+* Regra nº 3
 
-* Passados 180 dias da Data de Despacho do Benefício (DDB), 90 dias do bloqueio mais 90 dias para frente, os bancos podem iniciar o processo de oferta de crédito consignado aos seus clientes aposentados e pensionistas, desde que o intervalo entre a Data de Despacho do Benefício, e a Data de Autorizaão da Consulta, seja de, no mínimo, 90 dias (DDB - DAC >= 90).
+  * Passados 180 dias da Data de Despacho do Benefício (DDB), 90 dias do bloqueio mais 90 dias para frente, os bancos podem iniciar o processo de oferta de crédito consignado aos seus clientes aposentados e pensionistas, desde que o intervalo entre a Data de Despacho do Benefício, e a Data de Autorizaão da Consulta, seja de, no mínimo, 90 dias (DDB - DAC >= 90).
 
 ## Tecnologias Utilizadas
 
@@ -38,7 +36,43 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
   * Endpoint: /consignado/recuperarOfertas
   * Método: GET
+  * Consumo Local:
+    ```
+    curl -X GET "http://localhost:8080/consignado/recuperarOfertas" -H "accept: application/json"
+    ```
   * Response: Listagem de BeneficiarioDTO
+  * Exemplo de Resposta:
+  ```javascript
+  [
+    {
+      "cpfCliente": "004835706056",
+      "nomeCliente": "CLIENTE PROPOSTA AUTORIZADA",
+      "margemDisponivel": 0.3,
+      "numeroBeneficio": 87654321,
+      "dataAutorizacaoConsulta": "2020-01-02",
+      "dataNascimentoCliente": "1958-07-20",
+      "dataDespachoBeneficio": "2019-08-21"
+    },
+    {
+      "cpfCliente": "011894307208",
+      "nomeCliente": "CLIENTE PROPOSTA DDB ANTERIOR A 180 DIAS, DAC SUPERIOR A 90 DIAS",
+      "margemDisponivel": 0.2,
+      "numeroBeneficio": 12345678,
+      "dataAutorizacaoConsulta": "2019-12-02",
+      "dataNascimentoCliente": "1952-09-01",
+      "dataDespachoBeneficio": "2019-09-01"
+    },
+    {
+      "cpfCliente": "027864377840",
+      "nomeCliente": "CLIENTE NÃO EMITIU AUTORIZAÇÃO PARA CONSULTA DADOS",
+      "margemDisponivel": 0.32,
+      "numeroBeneficio": 98765432,
+      "dataAutorizacaoConsulta": null,
+      "dataNascimentoCliente": "1950-12-21",
+      "dataDespachoBeneficio": "2019-07-01"
+    }
+  ]
+  ```
 
 * recuperarOfertasAutorizadas:
 
@@ -46,20 +80,78 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
   * Endpoint: /consignado/recuperarOfertasAutorizadas
   * Método: GET
+  * Consumo Local:
+  ```
+  curl -X GET "http://localhost:8080/consignado/recuperarOfertasAutorizadas" -H "accept: application/json"
+  ```
   * Response: Listagem de BeneficiarioDTO
+  * Exemplo de Resposta: 
+  ```javascript
+  [
+    {
+      "cpfCliente": "004835706056",
+      "nomeCliente": "CLIENTE PROPOSTA AUTORIZADA",
+      "margemDisponivel": 0.3,
+      "numeroBeneficio": 87654321,
+      "dataAutorizacaoConsulta": "2020-01-02",
+      "dataNascimentoCliente": "1958-07-20",
+      "dataDespachoBeneficio": "2019-08-21"
+    },
+    {
+      "cpfCliente": "011894307208",
+      "nomeCliente": "CLIENTE PROPOSTA DDB ANTERIOR A 180 DIAS, DAC SUPERIOR A 90 DIAS",
+      "margemDisponivel": 0.2,
+      "numeroBeneficio": 12345678,
+      "dataAutorizacaoConsulta": "2019-12-02",
+      "dataNascimentoCliente": "1952-09-01",
+      "dataDespachoBeneficio": "2019-09-01"
+    }
+  ]
+  ```
 
 * armazenarCreditoContratado()
 
   * Endpoint: /consignado
   * Método: POST
   * Request: CreditoContratadoDTO
-  * Response: CreditoContratadoDTO persistido
+  * Exemplo de Requisição:
+  ```javascript
+  {
+    "cpfCliente": "00000000191",
+    "dataEnceramentoContrato": "2020-10-08",
+    "dataInicioContrato": "2020-04-08",
+    "dataVencimentoParcela": "10",
+    "numeroBeneficio": 6654333,
+    "quantidadeParcelas": 5,
+    "valorContratado": 1000.00
+  }
+  ```
+* Consumo local:
+  ```
+  curl -X POST "http://localhost:8080/consignado" -H "accept: */*" -H "Content-Type: application/json" 
+  -d "{ \"cpfCliente\": \"00000000191\", \"dataEnceramentoContrato\": \"2020-10-08\", 
+  \"dataInicioContrato\": \"2020-04-08\", \"dataVencimentoParcela\": \"10\", \"numeroBeneficio\": 6654333, 
+  \"quantidadeParcelas\": 5, \"valorContratado\": 1000.00 }"
+  ```
+* Response: CreditoContratadoDTO persistido
+* Exemplo de Resposta:
+  ```javascript
+  {
+    "id": 1,
+    "cpfCliente": "00000000191",
+    "valorContratado": 1000,
+    "quantidadeParcelas": 5,
+    "dataVencimentoParcela": "10",
+    "dataInicioContrato": "2020-04-08",
+    "dataEnceramentoContrato": "2020-10-08",
+    "numeroBeneficio": 6654333
+  }
+  ```
 
-## Objetos:
+## Modelo de Dados:
 
 * BeneficiarioDTO:
-
-```javascript
+  ```javascript
   {
     "cpfCliente": "String",
     "nomeCliente": "String",
@@ -69,10 +161,9 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
     "dataNascimentoCliente": "String",
     "dataDespachoBeneficio": "String"
   }
-```
+  ```
 * CreditoContratadoDTO:
-
-```javascript
+  ```javascript
   {
     "id": Integer,
     "cpfCliente": "String",
@@ -83,7 +174,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
     "quantidadeParcelas": Integer,
     "valorContratado": Integer
   }
-```
+  ```
 
 ## Execução em Nuvem
 
@@ -96,7 +187,6 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 * Maven:
 
   * Digitar o comando:
-
     ```
     mvn spring-boot:run
     ```
@@ -105,9 +195,8 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 * Executando via jar:
 
-  * Realizar o build do projeto com sua ferramenta preferencial;
+  * Realizar o build do projeto com sua ferramenta preferencial (para Maven, comando mvn install);
   * Digitar o comando:
-
     ```
     java -jar target/teste-consignado-1.0.0-SNAPSHOT.jar
     ```
