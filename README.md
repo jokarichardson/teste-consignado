@@ -14,7 +14,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 * **Regra nº 2**
 
-  * Após 90 dias da Data de Despacho do Benefício, o aposentado ou pensionista poderá contratar um crédito consignado. Para isto, é necessário que um termo de pré-autorização seja assinado pelo beneficiário para que a instituição financeira possa solicitar o acesso às informações do benefício ao INSS. Com a aprovação, pelo INSS, do termo, será considerado mais um prazo de 90 dias a partir da Data de Despacho do Benefício para que seja permitido aos bancos ofertarem crédito consignado.
+  * Após 90 dias da Data de Despacho do Benefício, o aposentado ou pensionista poderá contratar um crédito consignado. Para isto, é necessário que um termo de pré-autorização seja assinado pelo beneficiário para que a instituição financeira possa solicitar o acesso às informações do benefício ao INSS. Com a aprovação, pelo INSS, do termo, será considerado mais um prazo de 90 dias a partir da Data de Autorização da Consulta aos Dados, para que seja permitido aos bancos ofertarem crédito consignado.
 
 * **Regra nº 3**
 
