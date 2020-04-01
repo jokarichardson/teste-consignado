@@ -32,7 +32,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 * **recuperarOfertas:**
 
-  Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias;
+  Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias
 
   * **Endpoint:** /consignado/recuperarOfertas
   * **Método:** GET
@@ -76,7 +76,7 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
 
 * **recuperarOfertasAutorizadas:**
 
-  Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias, porém haja assinatura da pré-autorização (Data de Autorização da Consulta - DAC), e a diferença entre a DAC e a DDB seja de, no mínimo, 90 dias;
+  Essa operação realiza a busca dos Beneficiarios INSS cuja Data de Despacho do Benefício (DDB) seja igual ou inferior à data corrente subtraída de 180 dias, porém haja assinatura da pré-autorização (Data de Autorização da Consulta - DAC), e a diferença entre a DAC e a DDB seja de, no mínimo, 90 dias
 
   * **Endpoint:** /consignado/recuperarOfertasAutorizadas
   * **Método:** GET
@@ -110,6 +110,8 @@ Com a nova Instrução Normativa, os bancos somente poderão oferecer crédito c
   ```
 
 * **armazenarCreditoContratado:**
+
+  Essa operação realiza a persistência dos eventuais *prospects* de crédito consignado, na base de dados solicitada
 
   * **Endpoint:** /consignado
   * **Método:** POST
